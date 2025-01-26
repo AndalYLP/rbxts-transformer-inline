@@ -9,7 +9,7 @@
 	},
 	"keywords": [],
 	"author": "andalYLP",
-	"license": "ISC",
+	"license": "MIT",
 	"description": "",
 	"dependencies": {
 		"typescript": "~5.5.2"
