@@ -8,7 +8,7 @@
 		"watch": "tsc -w"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "andalYLP",
 	"license": "ISC",
 	"description": "",
 	"dependencies": {
