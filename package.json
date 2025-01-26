@@ -1,0 +1,30 @@
+{
+	"name": "rbxts-transformer-inline",
+	"version": "1.0.0",
+	"main": "out/index.js",
+	"scripts": {
+		"prepare": "npm run build",
+		"build": "tsc",
+		"watch": "tsc -w"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"typescript": "~5.5.2"
+	},
+	"devDependencies": {
+		"@rbxts/types": "^1.0.805",
+		"@types/node": "^22.5.4",
+		"@types/ts-expose-internals": "npm:ts-expose-internals@5.5.2",
+		"@typescript-eslint/eslint-plugin": "^8.5.0",
+		"@typescript-eslint/parser": "^8.5.0",
+		"eslint": "^8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1"
+	},
+	"files": [
+		"out"
+	]
+}
