@@ -60,7 +60,7 @@ local thisFile = "src/sever/example.ts"
 print(thisFile)
 ```
 
-## configuration `soon`
+## configuration
 
 ### FileSymbolFormat [string]
 
