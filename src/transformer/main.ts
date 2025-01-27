@@ -71,7 +71,10 @@ export class SymbolTransformer {
             )
         }
 
-        return factory.createCallExpression(main.expression, undefined, [result!])
+        if (result)
+            return factory.createCallExpression(main.expression, undefined, [result!])
+
+        return main
     }
 
     public visitCallExpression(node: ts.CallExpression): ts.Node {
