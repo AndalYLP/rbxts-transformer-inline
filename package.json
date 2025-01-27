@@ -1,6 +1,6 @@
 {
 	"name": "rbxts-transformer-inline",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"main": "out/index.js",
 	"scripts": {
 		"prepare": "npm run build",
@@ -38,6 +38,7 @@
 		"eslint-plugin-prettier": "^5.2.1"
 	},
 	"files": [
-		"out"
+		"out",
+		"index.d.ts"
 	]
 }
