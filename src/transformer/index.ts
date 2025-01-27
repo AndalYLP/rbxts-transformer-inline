@@ -6,14 +6,9 @@ import { SymbolTransformer } from "./main";
  * This is the transformer's configuration, the values are passed from the tsconfig.
  */
 export interface TransformerConfig {
-	_: void;
+	FileSymbolFormat: string;
 }
 
-/**
- * This is a utility object to pass around your dependencies.
- *
- * You can also use this object to store state, e.g prereqs.
- */
 export class TransformContext {
 	public factory: ts.NodeFactory;
 
