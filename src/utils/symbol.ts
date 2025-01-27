@@ -16,16 +16,17 @@ export class SymbolUtils {
         return transformer(this.context, node)
     }
 
-    public isOurImport(symbol: ts.Symbol): boolean {
-        if (!symbol.declarations) return false
+    public isCorrectImport(symbol: ts.Symbol, correctImport: string = "rbxts-transformer-inline"): boolean {
+        if (!symbol.declarations) throw new Error("FATAL 1 LOCO")
 
-        for (const declaration of symbol.declarations) {
-            if (!ts.isImportSpecifier(declaration)) continue
-            const importDeclaration = declaration.parent.parent.parent;
+        for (let declaration of symbol.declarations) {
+            const isImportSpecifier = ts.isImportSpecifier(declaration)
+            if (!isImportSpecifier && !ts.isImportDeclaration(declaration.parent)) continue
+            const importDeclaration = isImportSpecifier ? declaration.parent.parent.parent : declaration.parent;
             if (!ts.isImportDeclaration(importDeclaration)) continue
             const moduleSpecifier = importDeclaration.moduleSpecifier;
             if (!ts.isStringLiteral(moduleSpecifier)) continue
-            if (moduleSpecifier.text !== "rbxts-transformer-inline") continue
+            if (moduleSpecifier.text !== correctImport) continue
 
             return true
         }
