@@ -4,12 +4,26 @@
 </h3>
 
 <p align="center">
-probably a debugging transformer, lets you get some info like the line number and file path
+A debugging transformer, lets you get better debugging in roblox-ts
 </p>
 
 &nbsp;
 
-## Symbols
+## Main Feature 🔥
+
+automatically adds `$file` to your logging functions.
+
+```ts
+log.Info("Hello world")
+```
+
+```lua
+log.Info("src/sever/example.ts Hello world")
+```
+
+###### works with templates, variables and strings
+
+## Symbols 
 
 ### `$line`
 
@@ -64,7 +78,7 @@ print(thisFile)
 
 ### FileSymbolFormat [string]
 
-lets you add some things to the transform result
+lets you add some things to the transform result.
 
 #### `%l`
 
@@ -77,3 +91,23 @@ add the column info: `"%main:%c"` -> `src/server/example.ts:1`
 
 #### `%main`
 add the file info (you should always include this): `%main` -> `src/server/example.ts`
+
+### CustomLogger [object]
+
+#### `Enabled` [boolean]
+
+enables or disables this feature.
+
+default: `true`
+
+#### `PackageName` [string]
+
+the name of the package for your logging class.
+
+default: `@rbxts/log`
+
+#### `LogFunctions` [string[]]
+
+the functions used to log messages within your logging class.
+
+default: `["Verbose", "Debug", "Info", "Error", "Fatal"]`
