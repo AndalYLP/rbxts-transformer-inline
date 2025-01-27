@@ -17,7 +17,7 @@ export class SymbolUtils {
     }
 
     public isCorrectImport(symbol: ts.Symbol, correctImport: string = "rbxts-transformer-inline"): boolean {
-        if (!symbol.declarations) throw new Error("FATAL 1 LOCO")
+        if (!symbol.declarations) return false
 
         for (let declaration of symbol.declarations) {
             const isImportSpecifier = ts.isImportSpecifier(declaration)
