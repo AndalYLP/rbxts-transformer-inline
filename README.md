@@ -4,7 +4,7 @@
 </h3>
 
 <p align="center">
-probably a debugging macro, lets you get some info like the line and file path
+probably a debugging macro, lets you get some info like the line number and file path
 </p>
 
 &nbsp;
@@ -74,3 +74,6 @@ add the line info: `"%main:%l"` -> `src/server/example.ts:1`
 
 add the column info: `"%main:%c"` -> `src/server/example.ts:1`
 ###### from the start of the $file symbol
+
+#### `%main`
+add the file info (you should always include this): `%main` -> `src/server/example.ts`
