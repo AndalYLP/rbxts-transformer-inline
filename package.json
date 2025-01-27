@@ -1,6 +1,6 @@
 {
 	"name": "rbxts-transformer-inline",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"main": "out/index.js",
 	"scripts": {
 		"prepare": "npm run build",
@@ -15,7 +15,12 @@
 		"url": "https://github.com/AndalYLP/rbxts-transformer-inline/issues"
 	},
 	"homepage": "https://github.com/AndalYLP/rbxts-transformer-inline#readme",
-	"keywords": [],
+	"keywords": [
+		"roblox-ts",
+		"transformer",
+		"log",
+		"debug"
+	],
 	"author": "andalYLP",
 	"license": "MIT",
 	"description": "Transformer for Roblox Typescript compiler, get better logging.",
