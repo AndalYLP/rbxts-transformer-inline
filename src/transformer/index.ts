@@ -7,6 +7,11 @@ import { SymbolTransformer } from "./main";
  */
 export interface TransformerConfig {
 	FileSymbolFormat: string;
+	CustomLogger: {
+		Enabled: boolean
+		PackageName: string
+		LogFunctions: string[]
+	}
 }
 
 export class TransformContext {
@@ -18,6 +23,12 @@ export class TransformContext {
 		public config: TransformerConfig,
 	) {
 		this.factory = context.factory;
+
+		config.CustomLogger ??= {
+			Enabled: true,
+			PackageName: "@rbxts/log",
+			LogFunctions: ["Verbose", "Debug", "Info", "Error", "Fatal"]
+		}
 	}
 
 	/**
