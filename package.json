@@ -7,10 +7,18 @@
 		"build": "tsc",
 		"watch": "tsc -w"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AndalYLP/rbxts-transformer-inline.git"
+	},
+	"bugs": {
+		"url": "https://github.com/AndalYLP/rbxts-transformer-inline/issues"
+	},
+	"homepage": "https://github.com/AndalYLP/rbxts-transformer-inline#readme",
 	"keywords": [],
 	"author": "andalYLP",
 	"license": "MIT",
-	"description": "",
+	"description": "Transformer for Roblox Typescript compiler, get inline info",
 	"dependencies": {
 		"typescript": "~5.5.2"
 	},
