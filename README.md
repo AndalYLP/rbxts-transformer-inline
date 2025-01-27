@@ -4,7 +4,7 @@
 </h3>
 
 <p align="center">
-probably a debugging macro, lets you get some info like the line number and file path
+probably a debugging transformer, lets you get some info like the line number and file path
 </p>
 
 &nbsp;
