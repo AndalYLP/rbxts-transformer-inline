@@ -10,7 +10,7 @@ export interface TransformerConfig {
 	CustomLogger: {
 		Enabled: boolean
 		PackageName: string
-		LogFunctions: string[]
+		LogMethods: string[]
 	}
 }
 
@@ -27,7 +27,7 @@ export class TransformContext {
 		config.CustomLogger ??= {
 			Enabled: true,
 			PackageName: "@rbxts/log",
-			LogFunctions: ["Verbose", "Debug", "Info", "Error", "Fatal"]
+			LogMethods: ["Verbose", "Debug", "Info", "Error", "Fatal"]
 		}
 	}
 

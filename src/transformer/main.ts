@@ -36,9 +36,9 @@ export class SymbolTransformer {
     }
 
     public visitPropertyAccessExpression(main: ts.CallExpression, node: ts.PropertyAccessExpression): ts.Node {
-        const { factory, config: { CustomLogger: { LogFunctions, PackageName } } } = this.context
+        const { factory, config: { CustomLogger: { LogMethods, PackageName } } } = this.context
 
-        if (!LogFunctions.includes(node.name.text)) return main
+        if (!LogMethods.includes(node.name.text)) return main
 
         const symbol = this.typeChecker.getSymbolAtLocation(node.expression)
         if (!symbol) return main

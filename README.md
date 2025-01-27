@@ -11,7 +11,7 @@ A debugging transformer, lets you get better debugging in roblox-ts
 
 ## Main Feature 🔥
 
-automatically adds `$file` to your logging functions.
+automatically adds `$file` symbol to your logging methods.
 
 ```ts
 log.Info("Hello world")
@@ -106,8 +106,8 @@ the name of the package for your logging class.
 
 default: `@rbxts/log`
 
-#### `LogFunctions` [string[]]
+#### `LogMethods` [string[]]
 
-the functions used to log messages within your logging class.
+the methods used to log messages within your logging class.
 
 default: `["Verbose", "Debug", "Info", "Error", "Fatal"]`
