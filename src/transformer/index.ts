@@ -27,7 +27,7 @@ export class TransformContext {
 		config.CustomLogger ??= {
 			Enabled: true,
 			PackageName: "@rbxts/log",
-			LogMethods: ["Verbose", "Debug", "Info", "Error", "Fatal"]
+			LogMethods: ["Verbose", "Debug", "Info", "Warn", "Error", "Fatal"]
 		}
 	}
 

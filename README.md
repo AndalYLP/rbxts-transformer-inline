@@ -110,4 +110,4 @@ default: `@rbxts/log`
 
 the methods used to log messages within your logging class.
 
-default: `["Verbose", "Debug", "Info", "Error", "Fatal"]`
+default: `["Verbose", "Debug", "Info", "Warn", "Error", "Fatal"]`
