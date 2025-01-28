@@ -38,43 +38,22 @@ export class SymbolTransformer {
     public visitPropertyAccessExpression(main: ts.CallExpression, node: ts.PropertyAccessExpression): ts.Node {
         const { factory, config: { CustomLogger: { LogMethods, PackageName } } } = this.context
 
-        if (!LogMethods.includes(node.name.text)) return main
+        if (!LogMethods.includes(node.name.text)) return this.context.transform(main)
 
-        const symbol = this.typeChecker.getSymbolAtLocation(node.expression)
+        const symbol = this.typeChecker.getTypeAtLocation(node.expression).symbol
         if (!symbol) return main
 
-        if (!this.symbolUtils.isCorrectImport(symbol, PackageName)) return main
+        if (!this.symbolUtils.isCorrectImport(symbol, PackageName, true)) return this.context.transform(main)
 
         const argument = main.arguments[0]
         if (!argument) return main
 
-        let result
-        if (ts.isIdentifier(argument)) {
-            const originalMessage = argument.text
-            const fileResult = file[1](this.context, argument) as ts.StringLiteral
+        const fileInfo = file[1](this.context, argument as ts.Identifier) as ts.StringLiteral
 
-            result = factory.createTemplateExpression(
-                factory.createTemplateHead(`${fileResult.text} `),
-                [factory.createTemplateSpan(factory.createIdentifier(originalMessage), factory.createTemplateTail(""))]
-            )
-        } else if (ts.isStringLiteral(argument)) {
-            const originalMessage = argument.text
-            result = file[1](this.context, argument as unknown as ts.Identifier) as ts.StringLiteral
-
-            result.text += ` ${originalMessage}`
-        } else if (ts.isTemplateExpression(argument)) {
-            const fileResult = file[1](this.context, argument as unknown as ts.Identifier) as ts.StringLiteral
-
-            result = factory.createTemplateExpression(
-                factory.createTemplateHead(`${fileResult.text} ${argument.head.text}`),
-                argument.templateSpans
-            )
-        }
-
-        if (result)
-            return factory.createCallExpression(main.expression, undefined, [result!])
-
-        return main
+        return factory.createCallExpression(main.expression, undefined, [factory.createTemplateExpression(
+            factory.createTemplateHead(`${fileInfo.text} `),
+            [factory.createTemplateSpan(factory.createIdentifier(argument.getText()), factory.createTemplateTail(""))]
+        )])
     }
 
     public visitCallExpression(node: ts.CallExpression): ts.Node {

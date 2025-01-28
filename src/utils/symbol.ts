@@ -16,19 +16,26 @@ export class SymbolUtils {
         return transformer(this.context, node)
     }
 
-    public isCorrectImport(symbol: ts.Symbol, correctImport: string = "rbxts-transformer-inline"): boolean {
+    public isCorrectImport(symbol: ts.Symbol, correctImport: string = "rbxts-transformer-inline", isFromType: boolean = false): boolean {
         if (!symbol.declarations) return false
 
         for (let declaration of symbol.declarations) {
-            const isImportSpecifier = ts.isImportSpecifier(declaration)
-            if (!isImportSpecifier && !ts.isImportDeclaration(declaration.parent)) continue
-            const importDeclaration = isImportSpecifier ? declaration.parent.parent.parent : declaration.parent;
-            if (!ts.isImportDeclaration(importDeclaration)) continue
-            const moduleSpecifier = importDeclaration.moduleSpecifier;
-            if (!ts.isStringLiteral(moduleSpecifier)) continue
-            if (moduleSpecifier.text !== correctImport) continue
+            if (!isFromType) {
+                const isImportSpecifier = ts.isImportSpecifier(declaration)
+                if (!isImportSpecifier && !ts.isImportDeclaration(declaration.parent)) continue
+                const importDeclaration = isImportSpecifier ? declaration.parent.parent.parent : declaration.parent;
+                if (!ts.isImportDeclaration(importDeclaration)) continue
+                const moduleSpecifier = importDeclaration.moduleSpecifier;
+                if (!ts.isStringLiteral(moduleSpecifier)) continue
+                if (moduleSpecifier.text !== correctImport) continue
 
-            return true
+                return true
+            } else {
+                const { fileName } = declaration.getSourceFile()
+
+                const match = fileName.match(/node_modules\/(@[^\/]+\/[^\/]+|[^\/]+)/) ?? [undefined, undefined];
+                return match[1] === correctImport
+            }
         }
 
         return false
