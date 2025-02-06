@@ -9,7 +9,7 @@ A debugging transformer, lets you get better debugging in roblox-ts
 
 <div align="center">
 
-![Npm package](https://img.shields.io/badge/NPM-red?style=for-the-badge&logo=npm&logoColor=d9e0ee&link=https://www.npmjs.com/package/rbxts-transformer-inline)
+[![Npm package](https://img.shields.io/badge/NPM-red?style=for-the-badge&logo=npm&logoColor=d9e0ee&link=https://www.npmjs.com/package/rbxts-transformer-inline)](https://www.npmjs.com/package/rbxts-transformer-inline)
 
 </div>
 
