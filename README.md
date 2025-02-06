@@ -7,6 +7,12 @@
 A debugging transformer, lets you get better debugging in roblox-ts
 </p>
 
+<div align="center">
+
+![Npm package](https://img.shields.io/badge/NPM-red?style=for-the-badge&logo=npm&logoColor=d9e0ee&link=https://www.npmjs.com/package/rbxts-transformer-inline)
+
+</div>
+
 &nbsp;
 
 ## Main Feature 🔥
@@ -111,3 +117,17 @@ default: `@rbxts/log`
 the methods used to log messages within your logging class.
 
 default: `["Verbose", "Debug", "Info", "Warn", "Error", "Fatal"]`
+
+
+---
+
+
+<p align="center">
+Released under the <a href="LICENSE.md">MIT License</a>.
+</p>
+
+<div align="center">
+
+[![MIT License](https://img.shields.io/badge/license-MIT-white?style=for-the-badge)](LICENSE.md)
+
+</div>
